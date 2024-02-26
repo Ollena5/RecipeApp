@@ -1,3 +1,4 @@
+
 import streamlit as st
 
 page_bg_img = f"""
@@ -9,8 +10,16 @@ background-position: top left;
 background-repeat: no-repeat;
 background-attachment: local;
 }}
+
+/* Change sidebar background color */
+[data-testid="stSidebar"] {{
+background-image: url("https://www.myfreetextures.com/wp-content/uploads/2014/11/Rich-Blue-Abstract-Background.jpg")
+}}
+</style>
 """
 st.markdown(page_bg_img, unsafe_allow_html=True)
+
+
 
 # Function to add ingredient to cache
 @st.cache(allow_output_mutation=True)
@@ -125,13 +134,32 @@ def search_recipes():
         else:
             st.warning("Please add ingredients before searching for recipes.")
 
+def contact_form():
+    st.title("The Kitchen - Contact Us")
+    st.write("Please fill out the contact form below:")
+
+    # Input fields for contact form
+    name = st.text_input("Name")
+    email = st.text_input("Email")
+    message = st.text_area("Message")
+
+    # Submit button
+    if st.button("Send Message"):
+        # Validate and process the form data
+        if name and email and message:
+            st.success("Message sent successfully!")
+            # You can add code here to send the message via email or store it in a database
+        else:
+            st.error("Please fill out all fields.")
+
 def homepage():
     st.title("The Kitchen - Home")
     st.write("Welcome to The Kitchen. Please log in or explore our recipes.")
+    
 
 def main():
     st.sidebar.title("Navigation")
-    menu = ["Home", "Login", "User Profile", "Saved Recipes", "Search Recipes", "Recipe Upload"]
+    menu = ["Home", "Login", "User Profile", "Saved Recipes", "Search Recipes", "Recipe Upload", "Contact Us"]
     choice = st.sidebar.selectbox("Go to", menu)
     
     if choice == "Home":
@@ -146,6 +174,8 @@ def main():
         search_recipes()
     elif choice == "Recipe Upload":
         recipe_upload()
+    elif choice == "Contact Us":
+        contact_form()
 
 if __name__ == "__main__":
     main()
