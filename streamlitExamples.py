@@ -4,7 +4,7 @@ import streamlit as st
 page_bg_img = f"""
 <style>
 [data-testid="stAppViewContainer"] > .main {{
-background-image: url("https://images.rawpixel.com/image_600/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcm0yMThiYXRjaDUta2F0aWUtMTIuanBn.jpg");
+background-image: url("https://www.myfreetextures.com/wp-content/uploads/2014/11/Rich-Blue-Abstract-Background.jpg");
 background-size: 180%;
 background-position: top left;
 background-repeat: no-repeat;
@@ -96,14 +96,14 @@ def login():
             st.error("Invalid username or password.")
 
 def saved_recipes():
-    st.title("The Kitchen - Saved Recipes")
+    st.title("The Kitchen- Saved Recipes")
     # Search bar for saved recipes
     search_query = st.text_input("Search for Saved Recipes", "")
     st.write("You searched for saved recipes:", search_query)
     # Add saved recipes list or grid here
 
 def search_recipes():
-    st.title("The Kitchen - Search Recipes")
+    st.title("The Kitchen")
     st.write("Type in and add your ingredients to search for recipes:")
 
     # Get current list of ingredients from cache
@@ -153,7 +153,7 @@ def contact_form():
             st.error("Please fill out all fields.")
 
 def homepage():
-    st.title("The Kitchen - Home")
+    st.title("The Kitchen")
     st.write("Welcome to The Kitchen. Please log in or explore our recipes.")
     
 
